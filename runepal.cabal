@@ -25,7 +25,8 @@ source-repository head
 
 library
   exposed-modules:
-      Data
+      Rune
+      Util
   other-modules:
       Paths_runepal
   hs-source-dirs:

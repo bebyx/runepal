@@ -1,4 +1,4 @@
-module Data where
+module Rune where
 
 data Rune = Fehu
           | Uruz
@@ -35,6 +35,7 @@ data RuneData =
            } deriving (Eq, Show)
 
 data RuneAett = Freyr | Hagall | Tyr deriving (Eq, Show)
+type RuneSemiotics = (Char, Char, String)
 
 futhark :: [Rune]
 futhark = [minBound ..]
@@ -59,7 +60,7 @@ getAettFor rune
     | otherwise = error "Not a Futhark rune provided"
 
 
-getSemioticsFor :: Rune -> (Char, Char, String)
+getSemioticsFor :: Rune -> RuneSemiotics
 getSemioticsFor Fehu = ('f', 'ᚠ', "cattle; wealth")
 getSemioticsFor Uruz = ('u', 'ᚢ', "aurochs, wild ox")
 getSemioticsFor Thurisaz = ('þ', 'ᚦ', "Thurs, Jötunn")
