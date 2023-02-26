@@ -1,4 +1,4 @@
-module Lib where
+module Data where
 
 data Rune = Fehu
           | Uruz
@@ -37,7 +37,7 @@ data RuneData =
 data RuneAett = Freyr | Hagall | Tyr deriving (Eq, Show)
 
 futhark :: [Rune]
-futhark = [Fehu ..]
+futhark = [minBound ..]
 
 getDataFor :: Rune -> RuneData
 getDataFor rune =
@@ -65,7 +65,7 @@ getSemioticsFor Uruz = ('u', 'ᚢ', "aurochs, wild ox")
 getSemioticsFor Thurisaz = ('þ', 'ᚦ', "Thurs, Jötunn")
 getSemioticsFor Ansuz = ('a', 'ᚨ', "god, aesir")
 getSemioticsFor Raido = ('r', 'ᚱ', "ride, journey")
-getSemioticsFor Kaunan = ('k', 'ᚲ', "ulcer, wound")
+getSemioticsFor Kaunan = ('k', 'ᚲ', "ulcer, wound, illness")
 getSemioticsFor Gebo = ('g', 'ᚷ', "gift")
 getSemioticsFor Wunjo = ('w', 'ᚹ', "joy")
 getSemioticsFor Hagalaz = ('h', 'ᚺ', "hail")

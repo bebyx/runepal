@@ -25,7 +25,7 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
+      Data
   other-modules:
       Paths_runepal
   hs-source-dirs:
