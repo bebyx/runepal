@@ -1,4 +1,5 @@
 module Rune where
+import System.Random
 
 data Rune = Fehu
           | Uruz
@@ -24,6 +25,12 @@ data Rune = Fehu
           | Ingwaz
           | Othala
           | Dagaz deriving (Eq, Ord, Show, Read, Bounded, Enum)
+
+instance Random Rune where
+  randomR (lo, hi) gen =
+    let (randInt, newGen) = randomR (fromEnum lo, fromEnum hi) gen
+    in (toEnum randInt :: Rune, newGen)
+  random gen = randomR (minBound, maxBound) gen
 
 data RuneData =
   RuneData { transliteration :: Char
