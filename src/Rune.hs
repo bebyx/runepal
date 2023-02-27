@@ -44,11 +44,9 @@ data RuneData =
 data RuneAett = Freyr | Hagall | Tyr deriving (Eq, Show)
 type RuneSemiotics = (Char, Char, String)
 
-futhark :: [Rune]
-futhark = [minBound ..]
-
-getDataFor :: Rune -> RuneData
-getDataFor rune =
+getDataFor :: Maybe Rune -> RuneData
+getDataFor Nothing = error "Not a Futhark rune provided"
+getDataFor (Just rune) =
   RuneData { transliteration = latinLetter
            , name = rune
            , meaning = runeMeaning
