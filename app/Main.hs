@@ -3,11 +3,13 @@ module Main (main) where
 import Rune
 import Util
 import System.Environment
+import System.Random
 
 main :: IO ()
 main = do
   args <- getArgs
-  let rune = handleArgs args
+  seed <- getStdGen
+  let rune = handleArgs args seed
 
   putChar ' '
   putChar $ unicode rune
