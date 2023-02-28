@@ -1,8 +1,11 @@
+{-# LANGUAGE QuasiQuotes #-}
+
 module Rune ( Rune
             , RuneData(..)
             , getDataFor
             ) where
 
+import Data.String.Here (here)
 import System.Random (Random, random, randomR)
 
 data Rune = Fehu
@@ -94,3 +97,34 @@ getSemioticsFor Laguz = ('l' , 'ᛚ', "water, lake")
 getSemioticsFor Ingwaz = ('ŋ', 'ᛜ', "the ancestor god Ingwaz (Freyr)")
 getSemioticsFor Othala = ('o', 'ᛟ', "heritage, estate, possession")
 getSemioticsFor Dagaz = ('d', 'ᛞ', "day")
+
+
+divinationFehu =
+  [here|
+       Fehu is a rune of wealth, fortune, success.
+       Overall, it describes material gains, even in the context of spiritual concerns.
+       Besides, as the first rune of Futhark, Fehu emphasizes new beginning, innovation, progress.
+       Fehu advises to focus on your business, pointing out now is a good time to undertake material-world operations.
+       |]
+
+divinationUruz =
+  [here|
+       Uruz stands for aurochs and suggests connection to wild strength, natural powers and elemental energies.
+       The rune could predict that uncontrolled power enters your life and leads to change.
+       Uruz recommends to embrace solid external influence and the new reality it brings.
+       |]
+
+divinationThurisaz =
+  [here|
+       Thurs are Giants or, more widely, "the Other" of the Northern myths.
+       They are powerful beings who often oppose Gods and Heroes.
+       Thus, the rune may outline serious challenge, which shouldn't be taken lightly.
+       Nevertheless, once the challenge is overcome, you get precious wisdom, skill, possession.
+       |]
+
+divinationAnsuz =
+  [here|
+       Ansuz is a rune of Gods Aesir, who rule the world, namely Odin.
+       It relates to spiritual and mystical forces as well as intellectual gains.
+       Ansuz offers to pay attention to developing your skill, becoming a better version of yourself and to self-realization in general.
+       |]
