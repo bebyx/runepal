@@ -1,5 +1,9 @@
-module Rune where
-import System.Random
+module Rune ( Rune
+            , RuneData(..)
+            , getDataFor
+            ) where
+
+import System.Random (Random, random, randomR)
 
 data Rune = Fehu
           | Uruz
