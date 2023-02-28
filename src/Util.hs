@@ -29,8 +29,7 @@ handleArgs (input:_) gen = handleRuneInput probablyRune
     handleRuneInput (Just rune) = constructOutputFor rune
 
 constructOutputFor :: Rune -> String
-constructOutputFor rune =
-  [i|  ${[unicode info]} (${[transliteration info]})
+constructOutputFor rune = [i|  ${[unicode info]} (${[transliteration info]})
  ${name info}: ${meaning info} |]
   where
     info = getDataFor $ Just rune
