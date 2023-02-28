@@ -19,4 +19,4 @@ main = do
         putChar ' '
         putChar $ unicode runeData
         putStrLn $ " (" ++ [transliteration runeData] ++ ")"
-        putStrLn $ (show $ name runeData) ++ ": " ++ meaning runeData
+        putStrLn $ show (name runeData) ++ ": " ++ meaning runeData

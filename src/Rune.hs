@@ -34,7 +34,7 @@ instance Random Rune where
   randomR (lo, hi) gen =
     let (randInt, newGen) = randomR (fromEnum lo, fromEnum hi) gen
     in (toEnum randInt :: Rune, newGen)
-  random gen = randomR (minBound, maxBound) gen
+  random = randomR (minBound, maxBound)
 
 data RuneData =
   RuneData { transliteration :: Char
