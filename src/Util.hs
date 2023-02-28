@@ -2,10 +2,11 @@
 
 module Util (handleArgs) where
 
-import Data.Char (toLower, toUpper)
+import Data.Char (isLetter, toLower, toUpper)
 import Data.List (intercalate)
 import Data.String.Here (here)
-import Rune (Rune)
+import Data.String.Here.Interpolated ( i )
+import Rune (Rune, RuneData(..), getDataFor)
 import System.Random (random, StdGen)
 import Text.Read (readMaybe)
 
@@ -13,14 +14,26 @@ capitalize :: String -> String
 capitalize [] = []
 capitalize (x:xs) = toUpper x : map toLower xs
 
-handleArgs :: [String] -> StdGen -> Either String (Maybe Rune)
-handleArgs [] gen = Right $ Just rune
+handleArgs :: [String] -> StdGen -> String
+handleArgs [] gen = constructOutputFor rune
   where (rune, _) = random gen
-handleArgs ("help":_) _ = Left helpMessage
-handleArgs ("list":_) _ = Left $ intercalate "\n" $ map show futhark -- ^ not unlines to avoid newline in the very end 
+handleArgs ("help":_) _ = helpMessage
+handleArgs ("list":_) _ = intercalate "\n" $ map show futhark -- ^ not unlines to avoid newline in the very end 
   where futhark = [minBound .. ] :: [Rune]
-handleArgs (input:_) _ = Right $ readMaybe normalizedInput
-  where normalizedInput = capitalize input
+handleArgs (input:_) gen = handleRuneInput probablyRune
+  where
+    normalizedInput = capitalize $ filter isLetter input
+    probablyRune = readMaybe normalizedInput
+    handleRuneInput Nothing = "Not a Futhark rune provided, dropping random rune…\n"
+                              ++ handleArgs [] gen
+    handleRuneInput (Just rune) = constructOutputFor rune
+
+constructOutputFor :: Rune -> String
+constructOutputFor rune =
+  [i|  ${[unicode info]} (${[transliteration info]})
+ ${name info}: ${meaning info} |]
+  where
+    info = getDataFor $ Just rune
 
 helpMessage :: String
 helpMessage = [here|
