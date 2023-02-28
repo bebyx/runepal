@@ -78,7 +78,7 @@ getSemioticsFor Uruz = ('u', 'ᚢ', "aurochs, wild ox")
 getSemioticsFor Thurisaz = ('þ', 'ᚦ', "Thurs, Jötunn")
 getSemioticsFor Ansuz = ('a', 'ᚨ', "god, aesir")
 getSemioticsFor Raido = ('r', 'ᚱ', "ride, journey")
-getSemioticsFor Kaunan = ('k', 'ᚲ', "ulcer, wound, illness")
+getSemioticsFor Kaunan = ('k', 'ᚲ', "ulcer, wound, illness; torch")
 getSemioticsFor Gebo = ('g', 'ᚷ', "gift")
 getSemioticsFor Wunjo = ('w', 'ᚹ', "joy")
 getSemioticsFor Hagalaz = ('h', 'ᚺ', "hail")
@@ -127,4 +127,43 @@ divinationAnsuz =
        Ansuz is a rune of Gods Aesir, who rule the world, namely Odin.
        It relates to spiritual and mystical forces as well as intellectual gains.
        Ansuz offers to pay attention to developing your skill, becoming a better version of yourself and to self-realization in general.
+       |]
+
+divinationRaido =
+  [here|
+       Raido means travel and empowers anything that is a movement.
+       If you are in the middle of some process, just continue.
+       Try to forget about the destination and enjoy the process itself.
+       |]
+
+divinationKaunan =
+  [here|
+       Like a wound transforms into a scar once burnt by a fire of a torch, Kaunan is a rune of transformation.
+       Transformation is usually accompanied by discomfort if not pain.
+       That's the essence of the process, when you need to desintegrate the old to get a fresh lively entity.
+       Kaunan suggests to endure the illness of obstacles so strong immunity can arise.
+       |]
+
+divinationGebo =
+  [here|
+       Gebo is a light rune of a gift with a connotation of generousness.
+       This rune outlines the importance of genuine connections between people.
+       It reminds to stay open-minded, hospitable and cherish the community.
+       If you ask for advice, Gebo puts it clear: look closely at human beings around.
+       |]
+
+divinationWunjo =
+  [here|
+       Wunjo, joy, is a straightforward rune with obvious meaning.
+       Of course, it's not of cosmic scale, but accentuates a simple mode of life.
+       Whatever bothers you, remember that you can breathe fresh air, eat tasty food and talk to kind people.
+       Grandiose stuff is so small, when you consider the power of detail.
+       |]
+
+divinationHagalaz =
+  [here|
+       Hagalaz, hail, is a really severe, even brutal act of Nature.
+       However, as every elemental necessity, it brings some positives with itself.
+       Most probably Hagalaz denotes a harsh event in your life.
+       Still, you can take cover and go through it to see the rainbow of opportunity in the rebooted sky.
        |]
