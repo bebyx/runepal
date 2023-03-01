@@ -45,7 +45,7 @@ data RuneData =
            , meaning :: String
            , unicode :: Char
            , aett :: RuneAett
-           , manticDescription :: String -- change to Text
+           , divination :: String -- change to Text
            } deriving (Eq, Show)
 
 data RuneAett = Freyr | Hagall | Tyr deriving (Eq, Show)
@@ -59,7 +59,7 @@ getDataFor (Just rune) =
            , meaning = runeMeaning
            , unicode = unicodeRune
            , aett = getAettFor rune
-           , manticDescription = ""
+           , divination = ""
            }
   where
     (latinLetter, unicodeRune, runeMeaning) = getSemioticsFor rune
@@ -86,7 +86,7 @@ getSemioticsFor Naudiz = ('n', 'ᚾ', "need")
 getSemioticsFor Isaz = ('i', 'ᛁ', "ice")
 getSemioticsFor Jera = ('j', 'ᛃ', "year, good year, harvest")
 getSemioticsFor Eiwaz = ('æ', 'ᛇ', "yew-tree")
-getSemioticsFor Perth = ('p', 'ᛈ', "possibly pear-tree")
+getSemioticsFor Perth = ('p', 'ᛈ', "cup; game box; pear-tree, fruit")
 getSemioticsFor Algiz = ('z', 'ᛉ', "elk; protection, defence")
 getSemioticsFor Sowilo = ('s', 'ᛊ', "sun")
 getSemioticsFor Tiwaz = ('t', 'ᛏ', "the god Tiwaz (Týr)")
@@ -166,4 +166,94 @@ divinationHagalaz =
        However, as every elemental necessity, it brings some positives with itself.
        Most probably Hagalaz denotes a harsh event in your life.
        Still, you can take cover and go through it to see the rainbow of opportunity in the rebooted sky.
+       |]
+
+divinationNaudiz =
+  [here|
+       Need, hardship, distress -- this is what uncovers Naudiz.
+       The rune can indeed signal about dangers of the external world.
+       But despite of being unpleasant, they not lethal.
+       Fear not, work hard and remember that necessity is the mother of invention.
+       |]
+
+divinationIsaz =
+  [here|
+       Isaz literally means ice and typifies statics.
+       The rune points that life enters a period of winter, when Nature falls asleep til spring.
+       It's good to find a balance with the sleepy slow season and avoid any turmoil.
+       |]
+
+divinationJera =
+  [here|
+       Jera predicts harvest of fruits of your previous acts.
+       Usually this means you will get something sweet and nutricious.
+       However, if one didn't work hard nor smart, the harvest could be poor.
+       Jera reminds to recall the cyclic essence of life and always consider consequences.
+       |]
+
+divinationEiwaz =
+  [here|
+       Evergreen yew-tree is flexible and very durable.
+       Eiwaz shows up when one found the proper target.
+       Feel free to take a branch to make a bow and shoot.
+       |]
+
+divinationPerth =
+  [here|
+       Perth is a rune of pleasure.
+       It suggests that a pleasant period awaits and there's no need to resist temptation.
+       However, don't fall into the trap of hedonism, share your pleasures with friends.
+       |]
+
+divinationAlgiz =
+  [here|
+       Algiz, elk, is a rune that stands for protection.
+       Elk is a calm animal, but big, strong and with spiky horns.
+       Elk wouldn't attacks first, but would certainly strike back as needed.
+       Whatever happens, it reminds to be cautious and take great care.
+       |]
+
+divinationSowilo =
+  [here|
+       
+       |]
+
+divinationTiwaz =
+  [here|
+       
+       |]
+
+divinationBerkanan =
+  [here|
+       
+       |]
+
+divinationEhwaz =
+  [here|
+       
+       |]
+
+divinationMannaz =
+  [here|
+       
+       |]
+
+divinationLaguz =
+  [here|
+       
+       |]
+
+divinationIngwaz =
+  [here|
+       
+       |]
+
+divinationOthala =
+  [here|
+       
+       |]
+
+divinationDagaz =
+  [here|
+       
        |]
