@@ -76,7 +76,7 @@ getSemioticsFor :: Rune -> RuneSemiotics
 getSemioticsFor Fehu = ('f', 'ᚠ', "cattle; wealth")
 getSemioticsFor Uruz = ('u', 'ᚢ', "aurochs, wild ox")
 getSemioticsFor Thurisaz = ('þ', 'ᚦ', "Thurs, Jötunn")
-getSemioticsFor Ansuz = ('a', 'ᚨ', "god, aesir")
+getSemioticsFor Ansuz = ('a', 'ᚨ', "god, As")
 getSemioticsFor Raido = ('r', 'ᚱ', "ride, journey")
 getSemioticsFor Kaunan = ('k', 'ᚲ', "ulcer, wound, illness; torch")
 getSemioticsFor Gebo = ('g', 'ᚷ', "gift")
@@ -215,12 +215,16 @@ divinationAlgiz =
 
 divinationSowilo =
   [here|
-       
+       Sowilo eponymize powerful energy of the sun.
+       This energy is life-giving and highly dynamic, it breaks the statics of winter.
+       The rune might manifest that it's time to melt the ice and speed up.
        |]
 
 divinationTiwaz =
   [here|
-       
+       Tiwaz (Týr) is a one-handed battle-god.
+       Norsemen engraved swords with T-runes and it says it all.
+       Prepare for war, train to win a victory.
        |]
 
 divinationBerkanan =
