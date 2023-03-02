@@ -30,8 +30,8 @@ data Rune = Fehu
           | Mannaz
           | Laguz
           | Ingwaz
-          | Othala
-          | Dagaz deriving (Eq, Ord, Show, Read, Bounded, Enum)
+          | Dagaz
+          | Othala deriving (Eq, Ord, Show, Read, Bounded, Enum)
 
 instance Random Rune where
   randomR (lo, hi) gen =
@@ -95,8 +95,9 @@ getSemioticsFor Ehwaz = ('e', 'ᛖ', "horse")
 getSemioticsFor Mannaz = ('m', 'ᛗ', "man")
 getSemioticsFor Laguz = ('l' , 'ᛚ', "water, lake")
 getSemioticsFor Ingwaz = ('ŋ', 'ᛜ', "the ancestor god Ingwaz (Freyr)")
-getSemioticsFor Othala = ('o', 'ᛟ', "heritage, estate, possession")
 getSemioticsFor Dagaz = ('d', 'ᛞ', "day")
+getSemioticsFor Othala = ('o', 'ᛟ', "heritage, estate, possession")
+
 
 
 divinationFehu =
@@ -229,27 +230,41 @@ divinationTiwaz =
 
 divinationBerkanan =
   [here|
-       
+       Berkanan, literally birch, is a rune of female energy and fertility.
+       It could tell you that beauty will be faced and passion will be experienced.
+       Berkanan encourages to enjoy love, focus maternity and uncover tenderness. 
        |]
 
 divinationEhwaz =
   [here|
-       
+       The Horse rune emanates rapid energy of road, trade, competition.
+       Ehwaz may point out that there will be abrupt change.
+       And there's no need to hide, but to play the game pushed on you.
+       Eat from the exuberant event, ride that horse for your own benefit.
        |]
 
 divinationMannaz =
   [here|
-       
+       A human minus animal is what Mannaz declares.
+       Human, all too human is walking around and, maybe, it's about time to pay attention to it.
+       The rune can advise to not only turn back to the essentials of intelligence.
+       Remember it's only soul, whatever defined, that stays after the body becomes ashes. 
        |]
 
 divinationLaguz =
   [here|
-       
+       Laguz means water, or lake, and expresses imagination.
+       It can flow far far away and cover everything under its masses.
+       Maybe, it would be useful to control this powerful element?
+       Channels make a great deal if don't pollute the stream.
        |]
 
 divinationIngwaz =
   [here|
-       
+       Ingwaz represents the first of Danes, who's a great hermit.
+       Personified as Freyr and living in a stranger aett, it stresses solitude even more.
+       Sometimes thoughts become much clear when you give them time to thrive.
+       The rune might whisper that you should consider isolation and retreat.
        |]
 
 divinationOthala =
