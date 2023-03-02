@@ -127,7 +127,7 @@ divinationAnsuz =
   [here|
        Ansuz is a rune of Gods Aesir, who rule the world, namely Odin.
        It relates to spiritual and mystical forces as well as intellectual gains.
-       Ansuz offers to pay attention to developing your skill, becoming a better version of yourself and to self-realization in general.
+       Ansuz offers to pay attention to developing your way of life, becoming a better version of yourself and to self-realization in general.
        |]
 
 divinationRaido =
@@ -149,7 +149,7 @@ divinationGebo =
   [here|
        Gebo is a light rune of a gift with a connotation of generousness.
        This rune outlines the importance of genuine connections between people.
-       It reminds to stay open-minded, hospitable and cherish the community.
+       It reminds to stay open-minded, hospitable and cultivate the community.
        If you ask for advice, Gebo puts it clear: look closely at human beings around.
        |]
 
@@ -245,7 +245,7 @@ divinationEhwaz =
 
 divinationMannaz =
   [here|
-       A human minus animal is what Mannaz declares.
+       Human minus animal is what Mannaz declares.
        Human, all too human is walking around and, maybe, it's about time to pay attention to it.
        The rune can advise to not only turn back to the essentials of intelligence.
        Remember it's only soul, whatever defined, that stays after the body becomes ashes. 
@@ -267,12 +267,19 @@ divinationIngwaz =
        The rune might whisper that you should consider isolation and retreat.
        |]
 
-divinationOthala =
-  [here|
-       
-       |]
-
 divinationDagaz =
   [here|
-       
+       Dagaz is a light rune of Day an its perk.
+       Day is the most valuable time of human activity.
+       Day brings clearness to business and put away dusk and darkness.
+       The rune offers to focus on daily duties to achieve goals and upgrade the routine.
        |]
+    
+divinationOthala =
+  [here|
+       Othala stands for home, heritage -- possessions that are not merely materialistic.
+       The rune strongly reflects ancestry and invaluable entities like family, kin, culture.
+       The main message of Othala is to maintain your house and cherish the tradition.
+       |]
+
+
