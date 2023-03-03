@@ -5,8 +5,8 @@ module Util (handleArgs) where
 import Data.Char (isLetter, toLower, toUpper)
 import Data.List (intercalate)
 import Data.String.Here.Uninterpolated (here)
-import Data.String.Here.Interpolated ( i, iTrim )
-import Futhark (Rune, RuneData(..), getDataFor)
+import Data.String.Here.Interpolated (i, iTrim)
+import Futhark (Rune, RuneData(..), futhark, getDataFor)
 import System.Random (random, StdGen)
 import Text.PrettyPrint.Boxes (left, moveRight, para, render)
 import Text.Read (readMaybe)
@@ -20,7 +20,6 @@ handleArgs [] gen = constructStandardOutput rune
   where (rune, _) = random gen
 handleArgs ("help":_) _ = helpMessage
 handleArgs ("list":_) _ = intercalate "\n" $ map show futhark -- ^ not unlines to avoid newline in the very end
-  where futhark = [minBound .. ] :: [Rune]
 handleArgs ("csv":_) _ = constructCsvOutput
 handleArgs (input:_) gen = handleRuneInput probablyRune
   where
@@ -41,11 +40,15 @@ ${prettifiedDivination} |]
     prettifiedDivination = render . moveRight 2 . para left 60 $ divination info
 
 constructCsvOutput :: String
-constructCsvOutput = foldl (\acc x -> acc ++ (row $ getDataFor x) ++ "\n") "Name,Tranliteration,Unicode,Aett,Meaning,Divination\n" futhark
+constructCsvOutput =
+  foldl (\acc x ->
+           acc ++ (row $ getDataFor x) ++ "\n"
+        ) "Name,Tranliteration,Unicode,Aett,Meaning,Divination\n" futhark
   where
     row info =
-      [iTrim|${name info},${[transliteration info]},${[unicode info]},${aett info},"${meaning info}","${normalize $ divination info}"|]
-    futhark = [minBound .. ] :: [Rune]
+      [iTrim|
+            ${name info},${[transliteration info]},${[unicode info]},${aett info},"${meaning info}","${normalize $ divination info}"
+            |]
     normalize = intercalate "" . map escapeQuotes
     escapeQuotes '"' = "\"\""
     escapeQuotes c = [c]
