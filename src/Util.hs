@@ -6,8 +6,9 @@ import Data.Char (isLetter, toLower, toUpper)
 import Data.List (intercalate)
 import Data.String.Here.Uninterpolated (here)
 import Data.String.Here.Interpolated ( i )
-import Rune (Rune, RuneData(..), getDataFor)
+import Futhark (Rune, RuneData(..), getDataFor)
 import System.Random (random, StdGen)
+import Text.PrettyPrint.Boxes (left, moveRight, para, render)
 import Text.Read (readMaybe)
 
 capitalize :: String -> String
@@ -24,17 +25,19 @@ handleArgs (input:_) gen = handleRuneInput probablyRune
   where
     normalizedInput = capitalize $ filter isLetter input
     probablyRune = readMaybe normalizedInput
-    handleRuneInput Nothing = "Not a Futhark rune provided, dropping random rune…\n"
+    handleRuneInput Nothing = "Not a Futhark rune provided, dropping random rune…\n\n"
                               ++ handleArgs [] gen
     handleRuneInput (Just rune) = constructOutputFor rune
 
 constructOutputFor :: Rune -> String
 constructOutputFor rune = [i|  ${[unicode info]} (${[transliteration info]})
  ${name info}: ${meaning info}
+ Aett: ${aett info}
  Divination:
-${divination info} |]
+${prettifiedDivination} |]
   where
-    info = getDataFor $ Just rune
+    info = getDataFor rune
+    prettifiedDivination = render . moveRight 2 . para left 60 $ divination info
 
 helpMessage :: String
 helpMessage = [here|
@@ -44,4 +47,3 @@ helpMessage = [here|
   * list -- list all Futhark runes
   * help -- print this help message
   |]
-

@@ -1,6 +1,6 @@
 {-# LANGUAGE QuasiQuotes #-}
 
-module Rune ( Rune
+module Futhark ( Rune
             , RuneData(..)
             , getDataFor
             ) where
@@ -51,9 +51,8 @@ data RuneData =
 data RuneAett = Freyr | Hagall | Tyr deriving (Eq, Show)
 type RuneSemiotics = (Char, Char, String, String)
 
-getDataFor :: Maybe Rune -> RuneData
-getDataFor Nothing = error "Not a Futhark rune provided"
-getDataFor (Just rune) =
+getDataFor :: Rune -> RuneData
+getDataFor rune =
   RuneData { transliteration = latinLetter
            , name = rune
            , meaning = runeMeaning
@@ -77,14 +76,12 @@ getSemioticsFor Fehu =
   ('f', 'ᚠ', "cattle; wealth",
     [here|
          Fehu is a rune of wealth, fortune, success. Overall, it describes material gains, even in the context of spiritual concerns. Besides, as the first rune of Futhark, Fehu emphasizes new beginning, innovation, progress. Fehu advises to focus on your business, pointing out now is a good time to undertake material-world operations.
-         |]
-  )
+         |])
 getSemioticsFor Uruz =
   ('u', 'ᚢ', "aurochs, wild ox",
     [here|
          Uruz stands for aurochs and suggests connection to wild strength, natural powers and elemental energies. The rune could predict that uncontrolled power enters your life and leads to change. Uruz recommends to embrace solid external influence and the new reality it brings.
-         |]
-  )
+         |])
 getSemioticsFor Thurisaz =
   ('þ', 'ᚦ', "Thurs, Jötunn",
     [here|
@@ -123,7 +120,7 @@ getSemioticsFor Hagalaz =
 getSemioticsFor Naudiz =
   ('n', 'ᚾ', "need",
     [here|
-         Need, hardship, distress -- this is what uncovers Naudiz. The rune can indeed signal about dangers of the external world. But despite of being unpleasant, they not lethal. Fear not, work hard and remember that necessity is the mother of invention.
+         Need, hardship, distress -- this is what Naudiz uncovers. The rune can indeed signal about dangers of the external world. But despite of being unpleasant, they not lethal. Fear not, work hard and remember that necessity is the mother of invention.
          |])
 getSemioticsFor Isaz =
   ('i', 'ᛁ', "ice",
