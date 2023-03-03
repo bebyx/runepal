@@ -51,7 +51,9 @@ alias rnp="runepal-exe"
 `runepal` prints random rune with some info by default:
 
 ```bash
-~$ rnp 
+rnp
+```
+```console
   ᛒ (b)
  Berkanan: birch
  Aett: Tyr
@@ -65,7 +67,9 @@ alias rnp="runepal-exe"
 You can print info for a rune of your choice:
 
 ```bash
-~$ rnp othala
+rnp othala
+```
+```console
   ᛟ (o)
  Othala: heritage, estate, possession
  Aett: Tyr
@@ -80,7 +84,9 @@ You can print info for a rune of your choice:
 Also, you can list the whole Elder Futhark and output rune data in CSV format.
 
 ```bash
-~$ rnp help
+rnp help
+```
+```console
 Usage: command [arg]
   * no arg -- print data for random Futhark rune
   * rune name (case insensitive) -- print data for a rune of your choice
