@@ -46,7 +46,7 @@ data RuneData =
            , meaning :: String
            , unicode :: Char
            , aett :: RuneAett
-           , divination :: String -- change to Text
+           , divination :: String
            } deriving (Eq, Show)
 
 data RuneAett = Freyr | Hagall | Tyr deriving (Eq, Show)
