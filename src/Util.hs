@@ -4,7 +4,7 @@ module Util (handleArgs) where
 
 import Data.Char (isLetter, toLower, toUpper)
 import Data.List (intercalate)
-import Data.String.Here (here)
+import Data.String.Here.Uninterpolated (here)
 import Data.String.Here.Interpolated ( i )
 import Rune (Rune, RuneData(..), getDataFor)
 import System.Random (random, StdGen)
@@ -30,7 +30,9 @@ handleArgs (input:_) gen = handleRuneInput probablyRune
 
 constructOutputFor :: Rune -> String
 constructOutputFor rune = [i|  ${[unicode info]} (${[transliteration info]})
- ${name info}: ${meaning info} |]
+ ${name info}: ${meaning info}
+ Divination:
+${divination info} |]
   where
     info = getDataFor $ Just rune
 
