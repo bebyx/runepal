@@ -77,7 +77,7 @@ You can print info for a rune of your choice:
   cherish the tradition. 
 ```
 
-You can list the whole Elder Futhark, output rune data in CSV format.
+Also, you can list the whole Elder Futhark and output rune data in CSV format.
 
 ```bash
 ~$ rnp help
