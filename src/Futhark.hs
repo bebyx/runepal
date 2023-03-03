@@ -2,6 +2,7 @@
 
 module Futhark ( Rune
             , RuneData(..)
+            , futhark
             , getDataFor
             ) where
 
@@ -50,6 +51,9 @@ data RuneData =
 
 data RuneAett = Freyr | Hagall | Tyr deriving (Eq, Show)
 type RuneSemiotics = (Char, Char, String, String)
+
+futhark :: [Rune]
+futhark = [minBound .. ]
 
 getDataFor :: Rune -> RuneData
 getDataFor rune =
