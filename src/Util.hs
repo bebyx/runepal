@@ -59,5 +59,6 @@ helpMessage = [here|
   * no arg -- print data for random Futhark rune
   * rune name (case insensitive) -- print data for a rune of your choice
   * list -- list all Futhark runes
+  * csv -- print all rune data in CSV format (pipe to file if needed)
   * help -- print this help message
   |]
