@@ -1,4 +1,5 @@
 {-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 module Util (handleArgs) where
 
@@ -11,6 +12,13 @@ import System.Random (random, StdGen)
 import Text.PrettyPrint.Boxes (left, moveRight, para, render)
 import Text.Read (readMaybe)
 
+-- | JSON related imports
+import Data.Aeson (encode)
+import qualified Data.Text as T (unpack)
+import qualified Data.ByteString.Lazy as BSL (toStrict)
+import qualified Data.Text.Encoding as TE (decodeUtf8)
+
+
 capitalize :: String -> String
 capitalize [] = []
 capitalize (x:xs) = toUpper x : map toLower xs
@@ -21,6 +29,7 @@ handleArgs [] gen = constructStandardOutput rune
 handleArgs ("help":_) _ = helpMessage
 handleArgs ("list":_) _ = intercalate "\n" $ map show futhark -- ^ not unlines to avoid newline in the very end
 handleArgs ("csv":_) _ = constructCsvOutput
+handleArgs ("json":_) _ = constructJsonOutput
 handleArgs (input:_) gen = handleRuneInput probablyRune
   where
     normalizedInput = capitalize $ filter isLetter input
@@ -52,6 +61,9 @@ constructCsvOutput =
     normalize = intercalate "" . map escapeQuotes
     escapeQuotes '"' = "\"\""
     escapeQuotes c = [c]
+
+constructJsonOutput :: String 
+constructJsonOutput = T.unpack . TE.decodeUtf8 . BSL.toStrict . encode $ map getDataFor futhark
 
 helpMessage :: String
 helpMessage = [here|

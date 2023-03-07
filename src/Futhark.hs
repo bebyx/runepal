@@ -1,12 +1,15 @@
 {-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE DeriveGeneric #-}
 
 module Futhark ( Rune
-            , RuneData(..)
-            , futhark
-            , getDataFor
-            ) where
+               , RuneData(..)
+               , futhark
+               , getDataFor
+               ) where
 
+import Data.Aeson (defaultOptions, genericToEncoding, toEncoding, ToJSON)  
 import Data.String.Here.Uninterpolated (here)
+import GHC.Generics (Generic)
 import System.Random (Random, random, randomR)
 
 data Rune = Fehu
@@ -32,7 +35,7 @@ data Rune = Fehu
           | Laguz
           | Ingwaz
           | Dagaz
-          | Othala deriving (Eq, Ord, Show, Read, Bounded, Enum)
+          | Othala deriving (Eq, Ord, Show, Read, Bounded, Enum, Generic)
 
 instance Random Rune where
   randomR (lo, hi) gen =
@@ -47,10 +50,21 @@ data RuneData =
            , unicode :: Char
            , aett :: RuneAett
            , divination :: String
-           } deriving (Eq, Show)
+           } deriving (Eq, Show, Generic)
 
-data RuneAett = Freyr | Hagall | Tyr deriving (Eq, Show)
+data RuneAett = Freyr | Hagall | Tyr deriving (Eq, Show, Generic)
 type RuneSemiotics = (Char, Char, String, String)
+
+-- | JSON generic instantiation
+instance ToJSON Rune where
+  toEncoding = genericToEncoding defaultOptions
+
+instance ToJSON RuneData where
+  toEncoding = genericToEncoding defaultOptions
+
+instance ToJSON RuneAett where
+  toEncoding = genericToEncoding defaultOptions
+
 
 futhark :: [Rune]
 futhark = [minBound .. ]

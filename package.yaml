@@ -24,6 +24,9 @@ dependencies:
 - random
 - here
 - boxes
+- aeson
+- bytestring
+- text
 
 ghc-options:
 - -Wall
